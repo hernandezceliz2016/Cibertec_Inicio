@@ -34,11 +34,9 @@ namespace WebDeveloper.Controllers
 
         public ActionResult Edit(int id)
         {
-            Client client = _client.GetList().Find(x => x.ID == id);
+            var client = _client.GetClient(id);
             if (client == null)
-            {
-                return HttpNotFound();
-            }
+                RedirectToAction("Index");
             return View(client);
         }
         [HttpPost]
@@ -54,19 +52,18 @@ namespace WebDeveloper.Controllers
 
         public ActionResult Delete(int id)
         {
-            Client client = _client.GetList().Find(x => x.ID == id);
+            var client = _client.GetClient(id);
             if (client == null)
-            {
-                return HttpNotFound();
-            }
+                RedirectToAction("Index");
             return View(client);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(Client client)
         {
-            _client.Delete(client);
-            return RedirectToAction("Index");
+            if (_client.Delete(client) > 0)
+                return RedirectToAction("Index");
+            return View();
         }
     }
 }
