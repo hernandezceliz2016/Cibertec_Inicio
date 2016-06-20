@@ -23,7 +23,7 @@ namespace WebDeveloper.DataAccess
 
             clients.ForEach(c => context.Clients.Add(c));
             context.SaveChanges();
-
+            /*Agregar productos*/
             var Products = new List<Product>
            {
                new Product { Name ="IOR EPOCIM",Description="Eritropoyetina Humana Recombinante tipo alfa" , Expiration=null,Price=12.36d},
@@ -35,6 +35,7 @@ namespace WebDeveloper.DataAccess
            };
             Products.ForEach(c => context.Products.Add(c));
             context.SaveChanges();
+
         }
     }
 }
