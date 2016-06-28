@@ -7,23 +7,34 @@ using System.Web.Routing;
 
 namespace WebDeveloper
 {
+  
     public class RouteConfig
     {
+    
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-              name: "Razor",
-              url: "Razor/{id}",
-              defaults: new
-              {
-                  controller = "Razor",
-                  action = "Product",
-                  id = UrlParameter.Optional
-              }
-          );
+            //  routes.MapRoute(
+            //    name: "RazorId",
+            //    url: "Razor/{Id}",
+            //    defaults: new
+            //    {
+            //        controller = "Razor",
+            //        action = "EntryId"
+            //    }
+            //);
 
+            //  routes.MapRoute(
+            //    name: "RazorDate",
+            //    url: "Razor/{date}",
+            //    defaults: new
+            //    {
+            //        controller = "Razor",
+            //        action = "EntryDate"
+            //    }
+            //);
+            routes.MapMvcAttributeRoutes();
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
