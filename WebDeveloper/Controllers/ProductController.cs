@@ -12,7 +12,11 @@ namespace WebDeveloper.Controllers
     {
         //
         // GET: /Product/
-        private ProductData _product = new ProductData();
+        private IDataAccess<Product> _product;
+        public ProductController(IDataAccess<Product> product)
+        {
+            _product = product;
+        }
         public ActionResult Index()
         {
             return View(_product.GetList());
@@ -33,13 +37,13 @@ namespace WebDeveloper.Controllers
             return View();
         }
 
-        public ActionResult Edit(int id)
-        {
-            var product = _product.GetProduct(id);
-            if (product == null)
-                RedirectToAction("Index");
-            return View(product);
-        }
+        //public ActionResult Edit(int id)
+        //{
+        //    var product = _product.GetProduct(id);
+        //    if (product == null)
+        //        RedirectToAction("Index");
+        //    return View(product);
+        //}
         [HttpPost]
         public ActionResult Edit(Product product)
         {
@@ -51,13 +55,13 @@ namespace WebDeveloper.Controllers
             return View();
         }
 
-        public ActionResult Delete(int id)
-        {
-            var product = _product.GetProduct(id);
-            if (product == null)
-                RedirectToAction("Index");
-            return View(product);
-        }
+        //public ActionResult Delete(int id)
+        //{
+        //    var product = _product.GetProduct(id);
+        //    if (product == null)
+        //        RedirectToAction("Index");
+        //    return View(product);
+        //}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(Product product)
