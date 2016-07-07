@@ -12,7 +12,7 @@ namespace WebDeveloper
     {
         public void Configuration(IAppBuilder app)
         {
-            //ConfigureAuth(app);
+            ConfigureAuth(app);
             var container = new ServiceContainer();// definir el contenedor
             //container.Register<IDataAccess<Client>, ClientData>();
             container.RegisterAssembly(Assembly.GetExecutingAssembly());

@@ -4,7 +4,7 @@ using WebDeveloper.Model;
 using WebDeveloper.Resources;
 
 namespace WebDeveloper.Controllers
-{
+{[Authorize ]
     public class ClientController : Controller
     {
         private IDataAccess<Client> _client;
