@@ -59,6 +59,15 @@ namespace WebDeveloper.Controllers
             }
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult LogOff()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
+
+
         private IAuthenticationManager AuthenticationManager
         {
             get
