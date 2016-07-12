@@ -4,14 +4,14 @@ using System.Linq;
 
 namespace WebDeveloper.DataAccess
 {
-    public class BaseDataAccess<T> : IDataAccess<T> where T:class
+    public class BaseDataAccess<T> : IDataAccess<T> where T : class
     {
         public int Add(T entity)
         {
             using (var dbContext = new WebContextDb())
             {
-               dbContext.Entry(entity).State=EntityState.Added;
-               return dbContext.SaveChanges();
+                dbContext.Entry(entity).State = EntityState.Added;
+                return dbContext.SaveChanges();
             }
         }
 
@@ -40,5 +40,6 @@ namespace WebDeveloper.DataAccess
                 return dbContext.SaveChanges();
             }
         }
+
     }
 }
