@@ -18,8 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>1242</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
@@ -168,6 +167,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Internal\Controllers\InternalController.cs" />
+    <Compile Include="Areas\Internal\InternalAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseAccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -185,6 +186,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Css\site.css" />
     <Content Include="Css\site.min.css">
       <DependentUpon>site.css</DependentUpon>
@@ -194,6 +196,11 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Internal\Views\web.config" />
+    <Content Include="Areas\Internal\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Internal\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Internal\Views\Internal\Index.cshtml" />
+    <Content Include="Areas\Internal\Views\Internal\Create.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -250,7 +257,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BaseAccount\" />
+    <Folder Include="Areas\Internal\Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
@@ -290,7 +297,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1242</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1243/</IISUrl>
+          <IISUrl>http://localhost:1246/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
